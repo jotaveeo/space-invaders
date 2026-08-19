@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bx35qdjeml1d7"]
+
+[ext_resource type="Script" uid="uid://c1s6d5oio5v16" path="res://Cenas/jogador.gd" id="1_ruij7"]
+[ext_resource type="Texture2D" uid="uid://g22m2a4b7ngp" path="res://Sprites/jugador.png" id="2_lb8y5"]
+[ext_resource type="Texture2D" uid="uid://b3o8n5dacrnti" path="res://Sprites/alien1.png" id="3_ja1os"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8o4j"]
+size = Vector2(15, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8pkc"]
+size = Vector2(11, 8)
+
+[sub_resource type="Animation" id="Animation_qns0q"]
+resource_name = "Detonado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_n00j1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_x6di6"]
+resource_name = "Vivos"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alien/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btbr3"]
+_data = {
+&"Detonado": SubResource("Animation_qns0q"),
+&"RESET": SubResource("Animation_n00j1"),
+&"Vivos": SubResource("Animation_x6di6")
+}
+
+[node name="main" type="Node" unique_id=1237876684]
+
+[node name="Jogador" type="CharacterBody2D" parent="." unique_id=187404102]
+script = ExtResource("1_ruij7")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Jogador" unique_id=1085673620]
+position = Vector2(0, -1)
+texture = ExtResource("2_lb8y5")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador" unique_id=597769702]
+shape = SubResource("RectangleShape2D_j8o4j")
+
+[node name="Alien" type="CharacterBody2D" parent="." unique_id=46324983]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Alien" unique_id=1165204540]
+position = Vector2(126, 21)
+texture = ExtResource("3_ja1os")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alien" unique_id=1195359583]
+position = Vector2(126, 21)
+shape = SubResource("RectangleShape2D_r8pkc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Alien" unique_id=1726421950]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_btbr3")
+autoplay = &"Vivos"
