@@ -1,0 +1,15 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1787342382
+icon.svg::CompressedTexture2D::2093301234742123947::1787342265::1787342383::1::::<><><>0<>0<>bfe3cb8a13ef77b5c3e45ff4a5c021f8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Cenas/::1787342265
+jogador.gd::GDScript::6636799283416757687::1787342265::0::1::::<>CharacterBody2D<><>0<>0<><>::
+jogador.tscn::PackedScene::8046614676485700555::1787342265::0::1::::<><><>0<>0<><>::uid://c1s6d5oio5v16::::res://Cenas/jogador.gd<>uid://g22m2a4b7ngp::::res://Sprites/jugador.png
+laser.gd::GDScript::8632042999663588095::1787342265::0::1::::<>Area2D<><>0<>0<><>::
+Laser.tscn::PackedScene::5523711690254494939::1787342265::0::1::::<><><>0<>0<><>::uid://du8oqta5x0tb0::::res://Cenas/laser.gd<>uid://cfvdjxkekvt3b::::res://Sprites/disparoJugador.png
+main.tscn::PackedScene::4060416918638522310::1787342265::0::1::::<><><>0<>0<><>::uid://c1s6d5oio5v16::::res://Cenas/jogador.gd<>uid://g22m2a4b7ngp::::res://Sprites/jugador.png<>uid://b3o8n5dacrnti::::res://Sprites/alien1.png
+::res://Sprites/::1787342265
+alien1.png::CompressedTexture2D::4382638050535175722::1787342265::1787342383::1::::<><><>0<>0<>ed2ef8f0a71f2e5ace7a2069bda4c55d<>res://.godot/imported/alien1.png-415d5fe31ea84dab7ab332c086551139.ctex::
+bloque.png::CompressedTexture2D::5849694142635806796::1787342265::1787342383::1::::<><><>0<>0<>694aa6f9682a5c76efdd13d0266e48c9<>res://.godot/imported/bloque.png-ebbd470562a026e4671277fd6205757c.ctex::
+disparoEnemigo.png::CompressedTexture2D::3498140168457427954::1787342265::1787342383::1::::<><><>0<>0<>622814d3836e02187d77745c412f9e1a<>res://.godot/imported/disparoEnemigo.png-b0f0c2958715754e78fbd04e0f8d04ee.ctex::
+disparoJugador.png::CompressedTexture2D::5167336965216113613::1787342265::1787342383::1::::<><><>0<>0<>cb33bf5a31ccfea0b93e290914745619<>res://.godot/imported/disparoJugador.png-0b553342d71a035aa078502e33af1d81.ctex::
+jugador.png::CompressedTexture2D::478533468970052031::1787342265::1787342383::1::::<><><>0<>0<>9439042d792798e060ec5fd234d13a93<>res://.godot/imported/jugador.png-3559dde75d6de7471d6842d33bae063a.ctex::
