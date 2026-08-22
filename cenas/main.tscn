@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx35qdjeml1d7"]
+
+[ext_resource type="PackedScene" uid="uid://dmv3tkyp687hf" path="res://cenas/jogador.tscn" id="1_l8342"]
+[ext_resource type="PackedScene" uid="uid://dgjbyspcdwyng" path="res://cenas/groupAliens.tscn" id="2_group"]
+
+[node name="main" type="Node" unique_id=1832167029]
+
+[node name="jogador" parent="." unique_id=29669900 instance=ExtResource("1_l8342")]
+position = Vector2(127, 240)
+
+[node name="groupAliens" parent="." unique_id=1933256387 instance=ExtResource("2_group")]

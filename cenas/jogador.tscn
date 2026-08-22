@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dmv3tkyp687hf"]
+
+[ext_resource type="Script" uid="uid://c1s6d5oio5v16" path="res://cenas/jogador.gd" id="1_06a7y"]
+[ext_resource type="Texture2D" uid="uid://g22m2a4b7ngp" path="res://Sprites/jugador.png" id="2_w41yl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yybee"]
+size = Vector2(15, 6)
+
+[node name="jogador" type="CharacterBody2D" unique_id=29669900]
+script = ExtResource("1_06a7y")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1182837754]
+texture = ExtResource("2_w41yl")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=798913117]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_yybee")
+
+[node name="pontoDoLaser" type="Marker2D" parent="." unique_id=1437974227]
+position = Vector2(0, -4)
+
+[node name="TimerDisparo" type="Timer" parent="." unique_id=789989367]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="TimerDisparo" to="." method="_on_timer_disparo_timeout"]

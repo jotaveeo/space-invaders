@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://ckxyyvskj7iv8"]
 
-[ext_resource type="Script" uid="uid://du8oqta5x0tb0" path="res://Cenas/laser.gd" id="1_2y0l2"]
-[ext_resource type="Texture2D" uid="uid://cfvdjxkekvt3b" path="res://Sprites/disparoJugador.png" id="1_r2pt3"]
+[ext_resource type="Script" uid="uid://du8oqta5x0tb0" path="res://cenas/laser.gd" id="1_vj0a6"]
+[ext_resource type="Texture2D" uid="uid://cfvdjxkekvt3b" path="res://Sprites/disparoJugador.png" id="2_pdwom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8o4j"]
 size = Vector2(1, 7)
 
 [node name="Area2D" type="Area2D" unique_id=2044719753]
-position = Vector2(115, 198.5)
-script = ExtResource("1_2y0l2")
+script = ExtResource("1_vj0a6")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1793940983]
-texture = ExtResource("1_r2pt3")
+position = Vector2(0, -3.5)
+texture = ExtResource("2_pdwom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=873839661]
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_j8o4j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

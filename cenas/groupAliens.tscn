@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dgjbyspcdwyng"]
+
+[ext_resource type="Script" uid="uid://l1sqeaqdprr5" path="res://cenas/groupAliens.gd" id="1_nufvb"]
+
+[node name="groupAliens" type="Node" unique_id=1933256387]
+script = ExtResource("1_nufvb")
