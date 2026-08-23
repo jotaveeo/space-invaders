@@ -23,6 +23,5 @@ func explosion():
 	animation_alien.play("destroy")
 	
 func elimination ():
-	emit_signal("alien_eliminado")
-	get_parent().remove_child(self)
+	emit_signal("alien_eliminado", self)
 	queue_free()

@@ -16,6 +16,5 @@ func  _ready():
 			
 func eliminar_alien(a):
 	for fila in lista_aliens:
-		for i in range(len(fila)-1):
-			if a == fila[1]:
-				fila.remove_at(i)
+		if a in fila:
+			fila.erase(a)
