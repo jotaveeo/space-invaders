@@ -1,6 +1,14 @@
 # Space Invaders
 
-Um clone do clássico jogo **Space Invaders** desenvolvido utilizando a **Godot Engine 4**.
+**Universidade de Fortaleza - UNIFOR**
+**Centro de Ciências Tecnológicas - CCT**
+
+**Disciplina:** T166 - Experimentação de Protótipos
+**Professor:** Prof. M. David Martins Leite
+
+---
+
+Um clone do clássico jogo **Space Invaders** desenvolvido utilizando a **Godot Engine 4** para a disciplina de Experimentação de Protótipos.
 
 ## 👾 Sobre o Projeto
 
