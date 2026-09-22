@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b3o8n5dacrnti" path="res://Sprites/alien1.png" id="1_bqx7c"]
 [ext_resource type="Script" uid="uid://bnk0ehtrpc3tp" path="res://cenas/alien.gd" id="1_o4thi"]
+[ext_resource type="AudioStream" uid="uid://btlh4cby5d45h" path="res://sfx/invaderkilled.wav" id="2_bh5h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob7e1"]
 size = Vector2(11, 8)
@@ -98,8 +99,7 @@ shape = SubResource("RectangleShape2D_ob7e1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1077120630]
 libraries/ = SubResource("AnimationLibrary_bhvw8")
+autoplay = &"lives"
 
-[node name="timerMovimento" type="Timer" parent="." unique_id=1571975549]
-wait_time = 0.5
-
-[connection signal="timeout" from="timerMovimento" to="." method="_on_timer_movimento_timeout"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1234567890]
+stream = ExtResource("2_bh5h5")

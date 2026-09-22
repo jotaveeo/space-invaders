@@ -1,7 +1,15 @@
+HBoxContainer
+AudioStreamPlayer
 Timer
-Node
-Marker2D
 AnimationPlayer
 CollisionShape2D
 Sprite2D
 CharacterBody2D
+Area2D
+Button
+Label
+Node
+Node2D
+StaticBody2D
+VBoxContainer
+Marker2D

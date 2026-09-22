@@ -4,3 +4,7 @@
 
 [node name="groupAliens" type="Node" unique_id=1933256387]
 script = ExtResource("1_nufvb")
+
+[node name="Timerbonus" type="Timer" parent="." unique_id=1569969026]
+
+[connection signal="timeout" from="Timerbonus" to="." method="_on_timerbonus_timeout"]

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cfq5orwpeuecf"]
+
+[ext_resource type="Script" uid="uid://chkirt80ndvs1" path="res://cenas/bonus.gd" id="1_nj0eb"]
+[ext_resource type="Texture2D" uid="uid://chix2mqo2osdg" path="res://Sprites/bonus.png" id="2_36gnw"]
+[ext_resource type="AudioStream" uid="uid://btlh4cby5d45h" path="res://sfx/invaderkilled.wav" id="3_bh5h5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvld4"]
+size = Vector2(16, 7.484375)
+
+[sub_resource type="Animation" id="Animation_bxq28"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lmpwt"]
+resource_name = "destruido"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_06osx"]
+resource_name = "normal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yti0n"]
+_data = {
+&"RESET": SubResource("Animation_bxq28"),
+&"destruido": SubResource("Animation_lmpwt"),
+&"normal": SubResource("Animation_06osx")
+}
+
+[node name="bonus" type="CharacterBody2D" unique_id=1947744220 groups=["aliens"]]
+script = ExtResource("1_nj0eb")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1628723396]
+texture = ExtResource("2_36gnw")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=25182333]
+shape = SubResource("RectangleShape2D_mvld4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=24075419]
+libraries/ = SubResource("AnimationLibrary_yti0n")
+autoplay = &"normal"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1286608618]
+stream = ExtResource("3_bh5h5")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

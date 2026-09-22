@@ -2,17 +2,86 @@
 
 [ext_resource type="Script" uid="uid://c1s6d5oio5v16" path="res://cenas/jogador.gd" id="1_06a7y"]
 [ext_resource type="Texture2D" uid="uid://g22m2a4b7ngp" path="res://Sprites/jugador.png" id="2_w41yl"]
+[ext_resource type="AudioStream" uid="uid://duxk8egoha3d0" path="res://sfx/shoot.wav" id="3_w41yl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yybee"]
 size = Vector2(15, 6)
 
-[node name="jogador" type="CharacterBody2D" unique_id=29669900]
+[sub_resource type="Animation" id="Animation_06a7y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_w41yl"]
+resource_name = "destruido"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eliminado"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tyx0c"]
+resource_name = "vivo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufweb"]
+_data = {
+&"RESET": SubResource("Animation_06a7y"),
+&"destruido": SubResource("Animation_w41yl"),
+&"vivo": SubResource("Animation_tyx0c")
+}
+
+[node name="jogador" type="CharacterBody2D" unique_id=29669900 groups=["tanque"]]
 script = ExtResource("1_06a7y")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1182837754]
 texture = ExtResource("2_w41yl")
 hframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=798913117]
 position = Vector2(0, 1)
@@ -24,5 +93,13 @@ position = Vector2(0, -4)
 [node name="TimerDisparo" type="Timer" parent="." unique_id=789989367]
 wait_time = 0.4
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=336356729]
+root_node = NodePath("../TimerDisparo")
+libraries/ = SubResource("AnimationLibrary_ufweb")
+autoplay = &"vivo"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1974041610]
+stream = ExtResource("3_w41yl")
 
 [connection signal="timeout" from="TimerDisparo" to="." method="_on_timer_disparo_timeout"]
