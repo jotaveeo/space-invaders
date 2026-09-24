@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://boss000000001"]
+
+[ext_resource type="Script" uid="uid://bwkay7smos4hu" path="res://cenas/boss.gd" id="1_boss_script"]
+[ext_resource type="Texture2D" uid="uid://cksxrtq2emyi" path="res://Sprites/boss.png" id="2_catpj"]
+[ext_resource type="AudioStream" uid="uid://duxk8egoha3d0" path="res://sfx/shoot.wav" id="2_sfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogk7a"]
+size = Vector2(104, 47)
+
+[node name="Boss" type="CharacterBody2D" unique_id=147419585]
+script = ExtResource("1_boss_script")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1923257805]
+position = Vector2(3.8146973e-06, 3.8146973e-06)
+scale = Vector2(0.06868489, 0.051757753)
+texture = ExtResource("2_catpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=757243759]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ogk7a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=422127570]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1718081038]
+stream = ExtResource("2_sfx")
+
+[node name="TimerPattern" type="Timer" parent="." unique_id=288796185]
+wait_time = 1.5
+
+[connection signal="timeout" from="TimerPattern" to="." method="_on_timer_pattern_timeout"]

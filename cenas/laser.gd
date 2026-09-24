@@ -7,7 +7,10 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("aliens"):
-		body.explosion()
+		if body.has_method("take_damage"):
+			body.take_damage(1)
+		else:
+			body.explosion()
 		call_deferred("queue_free")
 	elif body.is_in_group("blocos"):
 		body.destruir()

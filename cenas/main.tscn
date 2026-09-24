@@ -45,6 +45,8 @@ horizontal_alignment = 1
 [node name="bases" type="Node" parent="." unique_id=798999669]
 
 [node name="base" type="Node2D" parent="bases" unique_id=1776963294]
+position = Vector2(-6, 0)
+metadata/_edit_group_ = true
 
 [node name="bloco" parent="bases/base" unique_id=2109291910 instance=ExtResource("5_5wwvk")]
 position = Vector2(64, 206)
@@ -83,6 +85,8 @@ position = Vector2(80, 202)
 position = Vector2(80, 206)
 
 [node name="base2" type="Node2D" parent="bases" unique_id=478196498]
+position = Vector2(-3, 0)
+metadata/_edit_group_ = true
 
 [node name="bloco" parent="bases/base2" unique_id=575510805 instance=ExtResource("5_5wwvk")]
 position = Vector2(102, 206)
@@ -121,6 +125,7 @@ position = Vector2(118, 202)
 position = Vector2(118, 206)
 
 [node name="base3" type="Node2D" parent="bases" unique_id=2080800522]
+metadata/_edit_group_ = true
 
 [node name="bloco" parent="bases/base3" unique_id=974344850 instance=ExtResource("5_5wwvk")]
 position = Vector2(141, 206)
@@ -159,6 +164,8 @@ position = Vector2(157, 202)
 position = Vector2(157, 206)
 
 [node name="base4" type="Node2D" parent="bases" unique_id=1468869176]
+position = Vector2(-10, 0)
+metadata/_edit_group_ = true
 
 [node name="bloco" parent="bases/base4" unique_id=1480459719 instance=ExtResource("5_5wwvk")]
 position = Vector2(26, 206)
@@ -197,6 +204,8 @@ position = Vector2(42, 202)
 position = Vector2(42, 206)
 
 [node name="base5" type="Node2D" parent="bases" unique_id=1898432729]
+position = Vector2(2, 1)
+metadata/_edit_group_ = true
 
 [node name="bloco" parent="bases/base5" unique_id=840772598 instance=ExtResource("5_5wwvk")]
 position = Vector2(179, 205)
@@ -235,6 +244,8 @@ position = Vector2(195, 201)
 position = Vector2(195, 205)
 
 [node name="base6" type="Node2D" parent="bases" unique_id=1070956497]
+position = Vector2(7, 1)
+metadata/_edit_group_ = true
 
 [node name="bloco" parent="bases/base6" unique_id=1492432044 instance=ExtResource("5_5wwvk")]
 position = Vector2(214, 205)
@@ -278,59 +289,38 @@ script = ExtResource("6_bhvw8")
 [node name="areagameover" type="Area2D" parent="." unique_id=119667472]
 position = Vector2(8, 280)
 script = ExtResource("7_l8342")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areagameover" unique_id=2119564393]
 position = Vector2(120, 0)
 shape = SubResource("RectangleShape2D_mvld4")
 
-[node name="base" type="Node2D" parent="areagameover" unique_id=1342140477]
-
-[node name="bloco" parent="areagameover/base" unique_id=341670479 instance=ExtResource("5_5wwvk")]
-position = Vector2(83, 206)
-
-[node name="bloco2" parent="areagameover/base" unique_id=231395699 instance=ExtResource("5_5wwvk")]
-position = Vector2(162, 412)
-
-[node name="bloco4" parent="areagameover/base" unique_id=2117840236 instance=ExtResource("5_5wwvk")]
-position = Vector2(91, 194)
-
-[node name="bloco5" parent="areagameover/base" unique_id=1267811815 instance=ExtResource("5_5wwvk")]
-position = Vector2(95, 194)
-
-[node name="bloco6" parent="areagameover/base" unique_id=17475444 instance=ExtResource("5_5wwvk")]
-position = Vector2(87, 194)
-
-[node name="bloco7" parent="areagameover/base" unique_id=153138527 instance=ExtResource("5_5wwvk")]
-position = Vector2(97, 198)
-
-[node name="bloco8" parent="areagameover/base" unique_id=1626671101 instance=ExtResource("5_5wwvk")]
-position = Vector2(93, 198)
-
-[node name="bloco9" parent="areagameover/base" unique_id=1630397648 instance=ExtResource("5_5wwvk")]
-position = Vector2(89, 198)
-
-[node name="bloco10" parent="areagameover/base" unique_id=943341089 instance=ExtResource("5_5wwvk")]
-position = Vector2(85, 198)
-
-[node name="bloco11" parent="areagameover/base" unique_id=551200705 instance=ExtResource("5_5wwvk")]
-position = Vector2(83, 202)
-
-[node name="bloco12" parent="areagameover/base" unique_id=76592345 instance=ExtResource("5_5wwvk")]
-position = Vector2(99, 202)
-
-[node name="bloco13" parent="areagameover/base" unique_id=1728675526 instance=ExtResource("5_5wwvk")]
-position = Vector2(99, 206)
-
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=736881295]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 56.0
+offset_top = 248.0
+offset_right = 199.0
+offset_bottom = 255.0
 
 [node name="LabelVidas" type="Label" parent="HBoxContainer" unique_id=1837075874]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_5wwvk")
 theme_override_font_sizes/font_size = 5
-text = "Vidas: 3"
+text = "LIVES: 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelWave" type="Label" parent="HBoxContainer" unique_id=1837075875]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5wwvk")
+theme_override_font_sizes/font_size = 5
+text = "WAVE: 01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTimer" type="Label" parent="HBoxContainer" unique_id=1837075876]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5wwvk")
+theme_override_font_sizes/font_size = 5
+text = "TIME: 60:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 

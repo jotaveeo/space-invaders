@@ -10,6 +10,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 const MAX_VIDAS = 3
 const INVULNERABILIDADE_TEMPO = 2.0
+const GOD_MODE = false  # false para jogo normal
 
 var vidas = MAX_VIDAS
 var pode_disparar = true
@@ -24,6 +25,10 @@ signal game_over
 func _ready():
 	vidas = MAX_VIDAS
 	emit_signal("vida_perdida", vidas)
+	
+	if GOD_MODE:
+		invulneravel = true
+		sprite.modulate = Color(0, 1, 1, 0.7)  # Visual indicator (cyan tint)
 
 func _physics_process(_delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -40,8 +45,8 @@ func _physics_process(_delta):
 		timer_disparar.start()
 		$AudioStreamPlayer.play()
 		
-	# Pisca durante invulnerabilidade
-	if invulneravel:
+	# Pisca durante invulnerabilidade (apenas se não for GOD_MODE)
+	if invulneravel and not GOD_MODE:
 		pisca_timer += _delta
 		invuln_timer += _delta
 		if pisca_timer >= PISCA_INTERVALO:
@@ -52,8 +57,11 @@ func _physics_process(_delta):
 			invuln_timer = 0.0
 			pisca_timer = 0.0
 			sprite.visible = true
-	
+
 	move_and_slide()
+	
+	# Limita posição horizontal na tela (viewport 254, margem ~16px pro sprite)
+	global_position.x = clamp(global_position.x, 16, 238)
 	
 func _on_timer_disparo_timeout():
 	pode_disparar = true
@@ -74,7 +82,7 @@ func perder_vida():
 	
 	if vidas <= 0:
 		emit_signal("game_over")
-		get_tree().change_scene_to_file("res://cenas/gameover.tscn")
+		call_deferred("_do_game_over_scene_change")
 	else:
 		# Respawn com invulnerabilidade
 		invulneravel = true
@@ -84,3 +92,7 @@ func perder_vida():
 		animation_player.play("vivo")
 		#get_parent().remove_child(self)
 		#queue_free()
+
+func _do_game_over_scene_change():
+	if get_tree():
+		get_tree().change_scene_to_file("res://cenas/gameover.tscn")

@@ -8,23 +8,28 @@ script = ExtResource("1_0gh88")
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="." unique_id=1809794655]
-offset_left = 96.0
-offset_top = 112.0
-offset_right = 160.0
-offset_bottom = 147.0
+offset_top = 88.0
+offset_right = 256.0
+offset_bottom = 123.0
 theme_override_fonts/font = ExtResource("1_frojw")
-text = "GAME
-OVER"
+text = "SYSTEM FAILURE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="botaoreiniciar" type="Button" parent="." unique_id=828380966]
-offset_left = 56.0
-offset_top = 160.0
-offset_right = 208.0
-offset_bottom = 184.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 136.0
+offset_right = 227.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_frojw")
 theme_override_font_sizes/font_size = 11
-text = "REINICIAR"
+text = "> RESTART SYSTEM?"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=689927454]
 
 [connection signal="pressed" from="botaoreiniciar" to="." method="_on_botaoreiniciar_pressed"]

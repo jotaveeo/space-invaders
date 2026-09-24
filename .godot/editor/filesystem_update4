@@ -1,2 +1,15 @@
-res://cenas/main.tscn
+res://cenas/menu.gd
+res://cenas/menu.tscn
+res://cenas/gameover.gd
+res://cenas/gameover.tscn
+res://cenas/jogador.gd
+res://cenas/alien.gd
+res://cenas/groupAliens.gd
+res://cenas/laser.gd
 res://cenas/main.gd
+res://cenas/main.tscn
+res://cenas/wave_manager.gd
+res://cenas/boss.tscn
+res://cenas/boss.gd
+res://cenas/areagameover.gd
+res://cenas/chao.gd
